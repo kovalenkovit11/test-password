@@ -1,0 +1,22 @@
+<div>
+  <label for="password">Password:</label>
+  <input
+    type="password"
+    id="password"
+    [(ngModel)]="password"
+    (input)="checkPasswordStrength()"
+  />
+</div>
+
+<div
+  class="strength-section"
+  [ngClass]="{ red: isWeak, yellow: isMedium, green: isStrong }"
+>
+  <div
+    [ngClass]="{
+      'red active': isWeak,
+      'yellow active': isMedium,
+      'green active': isStrong
+    }"
+  ></div>
+</div>
