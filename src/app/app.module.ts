@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { PasswordStrengthComponent } from './app.PasswordStrengthComponent';
+import { AppComponent } from './app.component';
+import { InputPasswordComponent } from './components/input-password/input-password.component';
+import { PasswordStrengthService } from './services/password-strength.service';
+import { PasswordStrengthBarComponent } from './components/password-strength-bar-component/password-strength-bar-component.component';
 
 @NgModule({
-  declarations: [PasswordStrengthComponent],
+  declarations: [AppComponent, PasswordStrengthBarComponent, InputPasswordComponent],
   imports: [BrowserModule, FormsModule],
-  providers: [],
-  bootstrap: [PasswordStrengthComponent],
+  providers: [PasswordStrengthService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
