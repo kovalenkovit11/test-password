@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PasswordStrengthService } from './../../services/password-strength.service';
 
 @Component({
   selector: 'input-password',
@@ -7,25 +8,15 @@ import { Component, Input } from '@angular/core';
 })
 export class InputPasswordComponent {
   @Input() status: string = '';
-
   password: string = '';
-  constructor() {}
+
+  constructor(private passwordStrengthService: PasswordStrengthService) {}
 
   checkPasswordStrength(password: string): string {
-    const hasLetters = /[a-zA-Z]/.test(password);
-    const hasDigits = /[0-9]/.test(password);
-    const hasSymbols = /[^a-zA-Z0-9]/.test(password);
-
     if (!password) {
       return 'absent';
-    } else if (password.length < 8) {
-      return 'few';
-    } else if (hasLetters && hasDigits && hasSymbols) {
-      return 'strong';
-    } else if ((hasLetters && hasDigits) || (hasDigits && hasSymbols) || (hasLetters && hasSymbols)) {
-      return 'medium';
-    } else {
-      return 'weak';
     }
+
+    return this.passwordStrengthService.checkPasswordStrength(password);
   }
 }

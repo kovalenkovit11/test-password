@@ -10,7 +10,7 @@ import { PasswordStrengthBarComponent } from './components/password-strength-bar
 @NgModule({
   declarations: [AppComponent, PasswordStrengthBarComponent, InputPasswordComponent],
   imports: [BrowserModule, FormsModule],
-  providers: [PasswordStrengthService],
+  providers: [PasswordStrengthService, PasswordStrengthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
